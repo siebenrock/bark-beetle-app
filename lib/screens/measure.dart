@@ -18,6 +18,10 @@ class _MeasureState extends State<Measure> {
 
   void completeMeasure() {
     try {
+      setState(() {
+        showCountdown = ValueNotifier<bool>(false);
+        showStart = ValueNotifier<bool>(false);
+      });
       Navigator.of(context).push(CupertinoPageRoute(builder: (context) {
         return Result();
       }));
@@ -25,10 +29,6 @@ class _MeasureState extends State<Measure> {
           .collection('current_measure')
           .document('0')
           .updateData({'status': 'complete'});
-      setState(() {
-        showCountdown = ValueNotifier<bool>(false);
-        showStart = ValueNotifier<bool>(false);
-      });
       print("Firestore updated");
     } catch (e) {
       print(e.toString());
@@ -83,7 +83,7 @@ class _MeasureState extends State<Measure> {
                           countdownRemainingColor: CorporateColors.cream,
                           countdownTotalColor: CorporateColors.green,
                           textStyle: TextStyle(color: Colors.black),
-                          gapFactor: 15,
+                          gapFactor: 18,
                           diameter: 200,
                         ),
                       ],
