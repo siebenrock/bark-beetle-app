@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'package:borki/static.dart';
+import '../static.dart';
 import 'listBox.dart';
 
 class Overview extends StatelessWidget {
