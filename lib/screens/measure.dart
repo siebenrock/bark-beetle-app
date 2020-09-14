@@ -14,17 +14,17 @@ class Measure extends StatefulWidget {
 
 class _MeasureState extends State<Measure> {
   ValueNotifier<bool> showCountdown = ValueNotifier<bool>(false);
-  ValueNotifier<bool> showStart = ValueNotifier<bool>(true);
+
+  MeasureData currentMeasureData = new MeasureData(
+      infestation: 99,
+      timestamp: "15. Sep 2020",
+      location: "Lichtenbergstraße 6, Garching",
+      temperature: 27.0,
+      humidity: 71.6,
+      notes: "Lorem ipsum");
 
   void completeMeasure() {
     try {
-      setState(() {
-        showCountdown = ValueNotifier<bool>(false);
-        showStart = ValueNotifier<bool>(false);
-      });
-      Navigator.of(context).push(CupertinoPageRoute(builder: (context) {
-        return Result();
-      }));
       Firestore.instance
           .collection('current_measure')
           .document('0')
@@ -32,6 +32,15 @@ class _MeasureState extends State<Measure> {
       print("Firestore updated");
     } catch (e) {
       print(e.toString());
+    } finally {
+      Navigator.push(
+        context,
+        new CupertinoPageRoute(
+          builder: (context) => Result(
+            currentMeasureData: currentMeasureData,
+          ),
+        ),
+      );
     }
   }
 
@@ -78,7 +87,7 @@ class _MeasureState extends State<Measure> {
                         TimeCircularCountdown(
                           unit: CountdownUnit.second,
                           countdownTotal: documentFields["duration"],
-                          onFinished: () => {completeMeasure()},
+                          onFinished: () => completeMeasure(),
                           countdownCurrentColor: CorporateColors.red,
                           countdownRemainingColor: CorporateColors.cream,
                           countdownTotalColor: CorporateColors.green,
