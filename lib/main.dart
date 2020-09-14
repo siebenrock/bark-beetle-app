@@ -1,4 +1,4 @@
-import 'package:borki/screens/screens.dart';
+import 'package:WoodPinger/screens/screens.dart';
 import 'package:flutter/cupertino.dart';
 
 void main() {

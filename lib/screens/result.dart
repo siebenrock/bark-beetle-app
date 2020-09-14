@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'package:borki/static.dart';
+import 'package:WoodPinger/static.dart';
 
 class Result extends StatelessWidget {
   final MeasureData currentMeasureData;
