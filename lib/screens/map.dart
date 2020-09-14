@@ -4,9 +4,14 @@ import 'package:flutter/cupertino.dart';
 class Map extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text("Map"),
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(middle: Text("Karte")),
+      child: SafeArea(
+        child: Container(
+          child: Center(
+            child: Text("Karte"),
+          ),
+        ),
       ),
     );
   }
