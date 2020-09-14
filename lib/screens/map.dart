@@ -32,18 +32,15 @@ class Map extends StatelessWidget {
                 new MarkerLayerOptions(
                   markers: [
                     new Marker(
-                      width: 35,
-                      height: 35,
+                      width: 40,
+                      height: 40,
                       point: new LatLng(48.267, 11.663),
                       builder: (ctx) => new Container(
-                        // decoration: BoxDecoration(
-                        //     color: CorporateColors.green,
-                        //     shape: BoxShape.circle,
-                        //     boxShadow: [BoxShadow(offset: Offset(1, 1))]),
                         child: Container(
                           child: Icon(
                             FontAwesomeIcons.mapMarkerAlt,
-                            color: CorporateColors.green,
+                            size: 40,
+                            color: CorporateColors.grey,
                           ),
                         ),
                       ),
