@@ -1,5 +1,5 @@
-name: borki
-description: A new Flutter project.
+name: WoodPinger
+description: The innovative way to detect bark beetles.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -43,9 +43,19 @@ dependencies:
 
   circular_countdown: ^1.2.1
 
+  flutter_map: any
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  flutter_launcher_icons: "^0.8.0"
+
+flutter_icons:
+  image_path: "assets/icon/icon.png"
+  android: true
+  ios: true
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
