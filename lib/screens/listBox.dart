@@ -15,7 +15,7 @@ class ListBox extends StatelessWidget {
         child: const DecoratedBox(
           decoration: BoxDecoration(
             color: Color.fromRGBO(121, 158, 106, 1),
-            borderRadius: BorderRadius.all(Radius.circular(20)),
+            borderRadius: BorderRadius.all(Radius.circular(12)),
           ),
           child: Padding(
             padding: EdgeInsets.all(12.0),
