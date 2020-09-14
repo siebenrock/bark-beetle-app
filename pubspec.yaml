@@ -1,5 +1,5 @@
-name: borki
-description: A new Flutter project.
+name: WoodPinger
+description: The innovative way to detect bark beetles.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -42,6 +42,8 @@ dependencies:
   font_awesome_flutter: 8.4.0
 
   circular_countdown: ^1.2.1
+
+  flutter_map: any
 
 dev_dependencies:
   flutter_test:
