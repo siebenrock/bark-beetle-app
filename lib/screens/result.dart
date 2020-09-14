@@ -5,11 +5,17 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:borki/static.dart';
 
 class Result extends StatelessWidget {
+  final MeasureData currentMeasureData;
+
+  Result({Key key, @required this.currentMeasureData}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    final int infestation = currentMeasureData.infestation;
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: Text("Messergebnis"),
+        trailing: Icon(CupertinoIcons.share),
       ),
       child: ListView(children: [
         Padding(
@@ -21,35 +27,58 @@ class Result extends StatelessWidget {
             children: [
               SizedBox(
                 width: double.infinity,
-                height: 450,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(121, 158, 106, 1),
+                    color: infestation > 40
+                        ? CorporateColors.red
+                        : (infestation == 0
+                            ? CorporateColors.green
+                            : CorporateColors.orange),
                     borderRadius: BorderRadius.all(Radius.circular(12)),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(12.0),
+                    padding: EdgeInsets.symmetric(
+                      vertical: 60.0,
+                      horizontal: 22.0,
+                    ),
                     child: Column(children: [
-                      Text("Messergebnis",
-                          style: CupertinoTheme.of(context)
-                              .textTheme
-                              .navTitleTextStyle),
+                      Icon(
+                        infestation > 40
+                            ? FontAwesomeIcons.exclamationCircle
+                            : (infestation == 0
+                                ? FontAwesomeIcons.solidCheckCircle
+                                : FontAwesomeIcons.binoculars),
+                        color: Colors.white,
+                        size: 62,
+                      ),
+                      SizedBox(height: 28),
+                      Text(
+                          infestation > 40
+                              ? "Starker Befall"
+                              : (infestation == 0
+                                  ? "Kein Befall"
+                                  : "Leichter Befall"),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 36,
+                            fontWeight: FontWeight.bold,
+                          )),
                     ]),
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 16),
               Container(
                 child: Row(
                   children: [
                     Icon(
-                      FontAwesomeIcons.thermometerHalf,
+                      FontAwesomeIcons.temperatureLow,
                       color: CorporateColors.red,
                     ),
-                    SizedBox(width: 12),
+                    SizedBox(width: 14),
                     Text("Temperatur:"),
                     Spacer(),
-                    Text("27°"),
+                    Text("${currentMeasureData.temperature}°"),
                   ],
                 ),
                 decoration: BoxDecoration(
@@ -58,18 +87,18 @@ class Result extends StatelessWidget {
                 ),
                 padding: const EdgeInsets.all(20.0),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 16),
               Container(
                 child: Row(
                   children: [
                     Icon(
-                      FontAwesomeIcons.thermometerHalf,
+                      FontAwesomeIcons.tint,
                       color: CorporateColors.red,
                     ),
-                    SizedBox(width: 12),
-                    Text("Temperatur:"),
+                    SizedBox(width: 14),
+                    Text("Luftfeuchtigkeit:"),
                     Spacer(),
-                    Text("27°"),
+                    Text("${currentMeasureData.humidity}%"),
                   ],
                 ),
                 decoration: BoxDecoration(
@@ -78,18 +107,17 @@ class Result extends StatelessWidget {
                 ),
                 padding: const EdgeInsets.all(20.0),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 16),
               Container(
                 child: Row(
                   children: [
                     Icon(
-                      FontAwesomeIcons.thermometerHalf,
+                      FontAwesomeIcons.solidCompass,
                       color: CorporateColors.red,
                     ),
-                    SizedBox(width: 12),
-                    Text("Temperatur:"),
-                    Spacer(),
-                    Text("27°"),
+                    SizedBox(width: 14),
+                    Text("${currentMeasureData.location}"),
+                    SizedBox(),
                   ],
                 ),
                 decoration: BoxDecoration(
