@@ -22,7 +22,7 @@ class Map extends StatelessWidget {
             child: new FlutterMap(
               options: new MapOptions(
                 center: new LatLng(48.267, 11.663),
-                zoom: 13.0,
+                zoom: 12.0,
               ),
               layers: [
                 new TileLayerOptions(

@@ -14,6 +14,7 @@ class Result extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final int infestation = currentMeasureData.infestation;
+    print("infestation::::: $infestation");
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: Text("Messergebnis"),

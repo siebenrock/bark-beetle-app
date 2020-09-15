@@ -63,7 +63,7 @@ class _ListBoxState extends State<ListBox> {
                           fontSize: 18,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 8),
                       Text(
                         "${widget.currentMeasureData.location}",
                         style: TextStyle(color: Colors.white),
