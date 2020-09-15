@@ -76,7 +76,7 @@ class _ListBoxState extends State<ListBox> {
                         : (infestation == 0
                             ? FontAwesomeIcons.solidCheckCircle
                             : FontAwesomeIcons.binoculars),
-                    color: Colors.white,
+                    color: CorporateColors.cream,
                     size: 36,
                   ),
                 ],
