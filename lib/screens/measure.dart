@@ -16,12 +16,13 @@ class _MeasureState extends State<Measure> {
   ValueNotifier<bool> showCountdown = ValueNotifier<bool>(false);
 
   MeasureData currentMeasureData = new MeasureData(
-      infestation: 99,
-      timestamp: "15. Sep 2020",
-      location: "Lichtenbergstraße 6, Garching",
-      temperature: 27.0,
-      humidity: 71.6,
-      notes: "Lorem ipsum");
+    infestation: 99,
+    timestamp: "15. Sep 2020",
+    location: "Lichtenbergstraße 6, Garching",
+    temperature: 27.0,
+    humidity: 71.6,
+    notes: "Lorem ipsum",
+  );
 
   void completeMeasure() {
     try {
