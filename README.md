@@ -8,7 +8,7 @@ Rangers need a reliable solution to spot infected trees, prevent the spread to s
 - Aerial image detection: expensive and late
 - Trap monitoring: inaccurate
 
-*Solution*
+*Hackathon solution*
 - Handheld device to detect beetle activity in a tree through sound
 - Mobile app to recognize, monitor activity and changes over time
 
