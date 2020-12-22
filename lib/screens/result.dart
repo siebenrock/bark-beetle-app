@@ -130,45 +130,43 @@ class Result extends StatelessWidget {
                 padding: const EdgeInsets.all(20.0),
               ),
               SizedBox(height: 16),
-              Container(
-                height: 180,
-                child: Center(
-                  child: new FlutterMap(
-                    options: new MapOptions(
-                      center: new LatLng(48.267, 11.663),
-                      zoom: 13.0,
-                    ),
-                    layers: [
-                      new TileLayerOptions(
-                          urlTemplate:
-                              "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                          subdomains: ['a', 'b', 'c']),
-                      new MarkerLayerOptions(
-                        markers: [
-                          new Marker(
-                            width: 40,
-                            height: 40,
-                            point: new LatLng(48.267, 11.663),
-                            builder: (ctx) => new Container(
-                              child: Container(
-                                child: Icon(
-                                  FontAwesomeIcons.mapMarkerAlt,
-                                  size: 40,
-                                  color: CorporateColors.grey,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Container(
+                  height: 182,
+                  child: Center(
+                    child: new FlutterMap(
+                      options: new MapOptions(
+                        center: new LatLng(48.267, 11.663),
+                        zoom: 13.0,
+                      ),
+                      layers: [
+                        new TileLayerOptions(
+                            urlTemplate:
+                                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                            subdomains: ['a', 'b', 'c']),
+                        new MarkerLayerOptions(
+                          markers: [
+                            new Marker(
+                              width: 40,
+                              height: 40,
+                              point: new LatLng(48.267, 11.663),
+                              builder: (ctx) => new Container(
+                                child: Container(
+                                  child: Icon(
+                                    FontAwesomeIcons.mapMarkerAlt,
+                                    size: 40,
+                                    color: CorporateColors.grey,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: CorporateColors.cream,
-                ),
-                padding: const EdgeInsets.all(10.0),
               ),
             ],
           ),
