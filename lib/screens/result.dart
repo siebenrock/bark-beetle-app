@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:share/share.dart';
 import 'package:latlong/latlong.dart';
 import 'package:flutter_map/flutter_map.dart';
 
@@ -8,17 +9,34 @@ import 'package:WoodPinger/static.dart';
 
 class Result extends StatelessWidget {
   final MeasureData currentMeasureData;
+  final String previousTitle;
 
-  Result({Key key, @required this.currentMeasureData}) : super(key: key);
+  Result(
+      {Key key,
+      @required this.currentMeasureData,
+      @required String this.previousTitle})
+      : super(key: key);
+
+  share(BuildContext context, String text, String subject) {
+    final RenderBox box = context.findRenderObject();
+    Share.share(text,
+        subject: subject,
+        sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
+  }
 
   @override
   Widget build(BuildContext context) {
     final int infestation = currentMeasureData.infestation;
-    print("infestation::::: $infestation");
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
+        previousPageTitle: previousTitle,
         middle: Text("Messergebnis"),
-        trailing: Icon(CupertinoIcons.share),
+        trailing: GestureDetector(
+          child: Icon(CupertinoIcons.share),
+          onTap: () {
+            share(context, "Messergebnis", "Befall: $infestation");
+          },
+        ),
       ),
       child: ListView(children: [
         Padding(
