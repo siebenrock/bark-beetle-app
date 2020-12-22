@@ -3,6 +3,8 @@
 The bark beetle population has grown exponentially in Europe and North America. Subsequently, spruce prices collapsed in recent years, biodiversity is lost, air quality is reduced, and the risk of forest fires is increased.
 Rangers need a reliable solution to spot infected trees, prevent the spread to surrounding areas, and protect the forest ecosystem and industry. 
 
+[Teaser Video](https://link.kaisiebenrock.com/woodpinger-teaser)
+
 *Current alternatives*
 - Full manual inspection: req. know-how, tedious, time-intensive
 - Aerial image detection: expensive and late
