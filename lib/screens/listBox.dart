@@ -32,6 +32,7 @@ class _ListBoxState extends State<ListBox> {
             new CupertinoPageRoute(
               builder: (context) => Result(
                 currentMeasureData: widget.currentMeasureData,
+                previousTitle: "Übersicht",
               ),
             ),
           );

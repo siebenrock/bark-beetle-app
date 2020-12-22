@@ -16,10 +16,21 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Main extends StatelessWidget {
+class Main extends StatefulWidget {
   const Main({
     Key key,
   }) : super(key: key);
+
+  @override
+  _MainState createState() => _MainState();
+}
+
+class _MainState extends State<Main> {
+  int currentIndex = 0;
+
+  final GlobalKey<NavigatorState> measureNavKey = GlobalKey<NavigatorState>();
+  final GlobalKey<NavigatorState> secondTabNavKey = GlobalKey<NavigatorState>();
+  final GlobalKey<NavigatorState> thirdTabNavKey = GlobalKey<NavigatorState>();
 
   @override
   Widget build(BuildContext context) {
@@ -27,19 +38,22 @@ class Main extends StatelessWidget {
       tabBuilder: (context, index) {
         switch (index) {
           case 0:
-            return CupertinoTabView(builder: (context) {
-              return Measure();
-            });
+            return CupertinoTabView(
+              navigatorKey: measureNavKey,
+              builder: (BuildContext context) => Measure(),
+            );
             break;
           case 1:
-            return CupertinoTabView(builder: (context) {
-              return Overview();
-            });
+            return CupertinoTabView(
+              navigatorKey: secondTabNavKey,
+              builder: (BuildContext context) => Overview(),
+            );
             break;
           case 2:
-            return CupertinoTabView(builder: (context) {
-              return Map();
-            });
+            return CupertinoTabView(
+              navigatorKey: thirdTabNavKey,
+              builder: (BuildContext context) => Map(),
+            );
             break;
           default:
         }
@@ -59,6 +73,23 @@ class Main extends StatelessWidget {
             title: Text("Karte"),
           ),
         ],
+        onTap: (index) {
+          // back home only if not switching tab
+          if (currentIndex == index) {
+            switch (index) {
+              case 0:
+                measureNavKey.currentState.popUntil((r) => r.isFirst);
+                break;
+              case 1:
+                secondTabNavKey.currentState.popUntil((r) => r.isFirst);
+                break;
+              case 2:
+                thirdTabNavKey.currentState.popUntil((r) => r.isFirst);
+                break;
+            }
+          }
+          currentIndex = index;
+        },
       ),
     );
   }

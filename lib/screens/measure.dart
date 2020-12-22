@@ -40,8 +40,7 @@ class _MeasureState extends State<Measure> {
         context,
         new CupertinoPageRoute(
           builder: (context) => Result(
-            currentMeasureData: currentMeasureData,
-          ),
+              currentMeasureData: currentMeasureData, previousTitle: "Messung"),
         ),
       );
     }
@@ -139,7 +138,7 @@ class _MeasureState extends State<Measure> {
                                   FontAwesomeIcons.wifi,
                                   color: CorporateColors.grey,
                                 ),
-                                SizedBox(width: 16),
+                                SizedBox(width: 18),
                                 Text("Gerät erfolgreich verbunden"),
                               ],
                             ),
